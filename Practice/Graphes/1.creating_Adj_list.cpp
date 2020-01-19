@@ -11,6 +11,7 @@ void printAdjLink(map< int,set<int> > Adj){
     }
 }
 void creatAdjList(int n,vector<int> A, vector<int> B){
+    // vector<int> adj[V];  can also be used
     map<int,set<int> > Adj;
     for(int i=0;i<A.size();i++){
         Adj[A[i]].insert(B[i]);

@@ -40,7 +40,7 @@ string getPrefex(string s,TriNode* Head){
     }
     return ans;
 }
-vector<string> Solution::prefix(vector<string> &A) {
+vector<string> Solution(vector<string> &A) {
     TriNode* Head = new TriNode();
     creatDictionary(A,Head);
     vector<string> preifixArray;

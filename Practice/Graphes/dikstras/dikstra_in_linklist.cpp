@@ -1,8 +1,32 @@
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
+int solve(int A, vector<vector<int> > &B, int C, int D) {
+    vector<int> dist(A,INT_MAX);
+    vector<vector<pair<int,int>>>adj(A,vector<pair<int,int>>());
+    for(auto b : B){
+        adj[b[0]].push_back({b[1],b[2]});
+        adj[b[1]].push_back({b[0],b[2]});
+    }
+    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>> >  pq;
+    dist[C] = 0;
+    pq.push({dist[C],C});
+    while(!pq.empty()){
+        int u = pq.top().second;
+        pq.pop();
+        for(auto edg : adj[u]){
+            int v = edg.first;
+            int w = edg.second;
+            if(dist[v] > dist[u] + w){
+                dist[v] = dist[u] + w;
+                pq.push({dist[v],v});
+            }
+        }
+    }
+    return  dist[D] == INT_MAX ? -1 : dist[D];
+}
 void dikstra(vector<vector<pair<int,int>>> &Adj,vector<int> &Dist, int start){
-    priority_queue<pair<int,int>> pq;
+    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>> > pq;
     pq.push({0,start});
     Dist[start] = 0;
     cout << start << endl;

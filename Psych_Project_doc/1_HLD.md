@@ -15,7 +15,7 @@ All these challenges make this game interesting to learn for a beginner for a fu
 So lets start developing the High Level Design for this game.
 Lets do simple one first.
 ##### Will this work?
-![Simple HLD](simple_HLD.png)
+![Simple HLD](images/simple_HLD.PNG)
 
 ### Server
 
@@ -27,7 +27,7 @@ So, ya this will not work and serve load needs to be Balanced.
 That menace using multiple servers. 
 If you are having multiple serves you better have a Load Balancer.
 
-![Simple HLD](loadBalancer_HLD.png)
+![Simple HLD](images/loadBalancer_HLD.PNG)
 
 ### Data Base
 Now what about DB? Is DB sharding required?
@@ -52,7 +52,7 @@ Two game data will rarely be merged so _game_id_ is a good option too.
 
 So now we have 2 DB's each with its one sharding.
 
-![Simple HLD](DB_Sharding_HLD.png)
+![Simple HLD](images/DB_Sharding_HLD.PNG)
 
 ### Load Balancer
 
@@ -76,7 +76,7 @@ To do this lets another load balancer which will route based on _player_id_ and 
 
 Now over architecture looks some thing like this...
 
-![Simple HLD](multi_LB_HLD.png)
+![Simple HLD](images/multi_LB_HLD.PNG)
 
 
 

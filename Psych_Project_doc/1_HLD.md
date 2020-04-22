@@ -19,7 +19,7 @@ Lets do simple one first.
 
 ### Server
 
-Lets say over game is popular and has 100,000 active player per month out of 1 million player who downloaded the game.And daily 1000 player on online at any given moment.But at peek times like say 6:00pm there ar 10,000 player online. 
+Lets say our game is popular and has 100,000 active player per month out of 1 million player who downloaded the game.And daily 1000 player on online at any given moment.But at peek times like say 6:00pm there ar 10,000 player online. 
 
 _TODO:: calculations on thy this is not possible_
 

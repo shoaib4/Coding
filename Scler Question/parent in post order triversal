@@ -1,0 +1,69 @@
+def get_parent(h, i):
+    l, r = 1, (1 << h) - 2
+    current_height = h - 1
+    while 1:
+        next_val = (r + l + 1) / 2
+        left_root = next_val - 1
+        right_root = r
+        # print(next_val, left_root, right_root)
+        if i == left_root:
+            return i + (1 << current_height)
+        if i == right_root:
+            return i + 1
+
+        if i >= next_val:
+            l, r = next_val, r - 1
+        else:
+            r = next_val - 2
+        current_height = current_height - 1
+
+
+def solution(h, q):
+    ans = []
+    for a in q:
+        if a >= ((1 << h) - 1):
+            ans.append(-1)
+            continue
+        ans.append(get_parent(h, a))
+    return ans
+
+
+# xx = solution(5, [i + 1 for i in range(30)])
+xx = solution(3, [7, 3, 5, 1])
+# print("----")
+print(xx)
+
+# (1 30)
+# 1 15 16 30
+
+#                31
+#       15                    30
+#    7         14          22            29
+#  3   6    10   13     18   21      25    28
+# 1 2 4 5  8 9 11 12  16 17 19 20  23 24 26 27
+
+#             1111
+#     111              1110
+#  11   110       1010       1101
+# 1 10 100 101  1000 1001  1011 1100
+
+# 22 ?
+# need hight and postion?
+
+# (1 15)
+# ( 1 7 )        (8 14)
+# (1 3) (4 6) (8 10) (11 13)
+#
+# (13 -8 + 1) / 2 = 3
+# (30 - 1 + 1)/2 = 15
+#
+# (1 15 16 30)
+#
+# 8 13
+
+
+# 8 + 3 = 11
+#
+#
+# 1, 15
+# 1 7   8 14
